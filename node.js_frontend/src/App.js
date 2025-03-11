@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import UserPosts from "./UserPosts";
+import ExpensiveCalculation from "./ExpensiveCalculation";
 import './App.css';
 
 function App() {
@@ -31,12 +32,15 @@ function App() {
               </ul>
           )}
 
-          <br/>
+-          <br/>
           <h1>Dynamic User Posts</h1>
             <button onClick={() => setUserId(1)}>User 1</button>
             <button onClick={() => setUserId(2)}>User 2</button>
             <button onClick={() => setUserId(3)}>User 3</button>
             <UserPosts userId={userId} />
+
+            <hr/>
+            <ExpensiveCalculation/>
       </div>
   );
 }
