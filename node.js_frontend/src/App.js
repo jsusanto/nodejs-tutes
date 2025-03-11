@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import UserPosts from "./UserPosts";
 import './App.css';
 
 function App() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [userId, setUserId] = useState(1);
 
   useEffect(() => {
       // Fetch data from Node.js backend
@@ -28,6 +30,13 @@ function App() {
                   ))}
               </ul>
           )}
+
+          <br/>
+          <h1>Dynamic User Posts</h1>
+            <button onClick={() => setUserId(1)}>User 1</button>
+            <button onClick={() => setUserId(2)}>User 2</button>
+            <button onClick={() => setUserId(3)}>User 3</button>
+            <UserPosts userId={userId} />
       </div>
   );
 }
