@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback  } from "react";
-import UserPosts from "./UserPosts";
-import ExpensiveCalculation from "./ExpensiveCalculation";
-import ChildButton from "./ChildButton"
+import UserPosts from "./useEffect/UserPosts";
+import ExpensiveCalculation from "./useMemo/ExpensiveCalculation";
+import ChildButton from "./useMemo/ChildButton"
 import './App.css';
 
 function App() {
