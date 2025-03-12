@@ -3,6 +3,8 @@ import UserPosts from "./useEffect/UserPosts";
 import ExpensiveCalculation from "./useMemo/ExpensiveCalculation";
 import ChildButton from "./useMemo/ChildButton"
 import DynamicDropdownWithFetch from "./DynamicDropdownWithFetch/DynamicDropdownWithFetch"
+import { Modal, Button } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 
 function App() {
@@ -29,6 +31,13 @@ function App() {
   const handleIncrement = useCallback(() => {
     setCount((prevCount) => prevCount + 1);
   }, []); // Empty dependency array ensures the function is memoized
+  //************************************************************************ */
+
+  // Run npm install for a better UI
+  // e.g $npm install react-bootstrap bootstrap
+  // Open modal dialog
+  const [show, setShow] = useState(false);
+
   //************************************************************************ */
 
   return (
@@ -59,6 +68,23 @@ function App() {
             <ChildButton onIncrement={handleIncrement} />
             <hr/>
             <DynamicDropdownWithFetch/>
+
+            <hr/>
+            <Button variant="primary" onClick={() => setShow(true)}>
+                Open Dialog
+            </Button>
+
+            <Modal show={show} onHide={() => setShow(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Pop-Up Dialog</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>This is a React-Bootstrap dialog box!</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setShow(false)}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
       </div>
   );
 }
