@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback  } from "react";
 import UserPosts from "./UserPosts";
 import ExpensiveCalculation from "./ExpensiveCalculation";
+import ChildButton from "./ChildButton"
 import './App.css';
 
 function App() {
@@ -18,6 +19,16 @@ function App() {
           })
           .catch((error) => console.error("Error fetching posts:", error));
   }, []); // Empty dependency array means it runs once when the component mounts
+
+  //************************************************************************ */
+  // Example useCallback
+  const [count, setCount] = useState(0);
+
+  // Memoize the increment function using useCallback
+  const handleIncrement = useCallback(() => {
+    setCount((prevCount) => prevCount + 1);
+  }, []); // Empty dependency array ensures the function is memoized
+  //************************************************************************ */
 
   return (
       <div>
@@ -41,6 +52,11 @@ function App() {
 
             <hr/>
             <ExpensiveCalculation/>
+            <hr/>
+            <h1>useCallback Example</h1>
+            <p>Count: {count}</p>
+            <ChildButton onIncrement={handleIncrement} />
+            
       </div>
   );
 }
