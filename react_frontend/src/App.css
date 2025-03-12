@@ -77,3 +77,72 @@
   background-color: #0056b3;
 }
 
+/* Open dialog with simple form */
+/* General popup overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Popup box */
+.popup-box {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Button styles */
+.open-popup-btn, .submit-btn, .close-popup-btn {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.open-popup-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.submit-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.close-popup-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.open-popup-btn:hover {
+  background-color: #0056b3;
+}
+
+.submit-btn:hover {
+  background-color: #218838;
+}
+
+.close-popup-btn:hover {
+  background-color: #c82333;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+

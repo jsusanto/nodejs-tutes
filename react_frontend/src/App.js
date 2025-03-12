@@ -39,6 +39,34 @@ function App() {
   const [show, setShow] = useState(false);
 
   //************************************************************************ */
+  // Open modal dialog with simple form
+
+    const [isOpen, setIsOpen] = useState(false); // State for controlling pop-up visibility
+    const [formData, setFormData] = useState({ name: "", email: "" }); // State for form data
+
+    // Open the pop-up
+    const openPopup = () => setIsOpen(true);
+
+    // Close the pop-up
+    const closePopup = () => setIsOpen(false);
+
+    // Handle form input changes
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
+
+    // Handle form submission
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("Form Submitted:", formData);
+        // Close the pop-up after submission
+        closePopup();
+    };
+  //************************************************************************ */
 
   return (
       <div>
@@ -85,7 +113,58 @@ function App() {
                     </Button>
                 </Modal.Footer>
             </Modal>
+
+            <hr/>
+            <div className="App">
+                <h1>React Pop-Up Form</h1>
+                <button onClick={openPopup} className="open-popup-btn">
+                    Open Form
+                </button>
+
+                {/* Pop-up Window */}
+                {isOpen && (
+                    <div className="popup-overlay">
+                        <div className="popup-box">
+                            <h2>Simple Form</h2>
+                            <form onSubmit={handleSubmit}>
+                                <div>
+                                    <label>Name: </label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleInputChange}
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <label>Email: </label>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleInputChange}
+                                        required
+                                    />
+                                </div>
+                                <button type="submit" className="submit-btn">
+                                    Submit
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={closePopup}
+                                    className="close-popup-btn"
+                                >
+                                    Close
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                )}
+            </div>
       </div>
+
+      
   );
 }
 
