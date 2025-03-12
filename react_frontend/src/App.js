@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback  } from "react";
 import UserPosts from "./useEffect/UserPosts";
 import ExpensiveCalculation from "./useMemo/ExpensiveCalculation";
 import ChildButton from "./useMemo/ChildButton"
+import DynamicDropdownWithFetch from "./DynamicDropdownWithFetch/DynamicDropdownWithFetch"
 import './App.css';
 
 function App() {
@@ -56,7 +57,8 @@ function App() {
             <h1>useCallback Example</h1>
             <p>Count: {count}</p>
             <ChildButton onIncrement={handleIncrement} />
-            
+            <hr/>
+            <DynamicDropdownWithFetch/>
       </div>
   );
 }
